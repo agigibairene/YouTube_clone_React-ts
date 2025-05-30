@@ -5,7 +5,7 @@ export default function Header(){
         <header className="w-full h-20 sticky top-0 z-100">
             <nav className="flex items-center justify-between">
                 <div className="flex items-center gap-6">
-                    <i className="bi bi-list ml-4"></i>
+                    <i className="bi bi-list ml-4 cursor-pointer"></i>
                     <img src={logo} className="w-[7rem]" alt="" />
                 </div>
 
@@ -27,7 +27,7 @@ export default function Header(){
                 </div>
 
                 <div className="flex">
-                    <button className="flex items-center rounded-2xl cursor-pointer bg-gray-100 px-2 mr-6">
+                    <button className="flex items-center rounded-2xl cursor-pointer bg-gray-100 px-4 mr-6">
                         <i className="bi bi-plus"></i>
                         <p>Create</p>
                     </button>
