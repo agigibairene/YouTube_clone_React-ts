@@ -17,13 +17,13 @@ export default function Header(){
                     <IoMdMenu className="ml-4 cursor-pointer" size={30} onClick={()=>dispatch(handleToogleSideBar())}/>
                     <img src={logo} className="w-[7rem] cursor-pointer" alt="" />
                 </div>
-                {
+                {/* {
                     toggleSidebar && (
                         <div className="fixed inset-0 bg-black bg-opacity-10 z-40">
                             <SideBar/> 
                         </div>
                     )
-                }
+                } */}
 
                 <div className="flex items-center">
                     <div className="flex items-center justify-between border border-gray-300 w-[400px] pl-4 rounded-3xl mr-4">

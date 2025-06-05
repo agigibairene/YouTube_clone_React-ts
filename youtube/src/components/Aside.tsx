@@ -7,7 +7,7 @@ interface sideBarInterface{
 }
 
 
-export default function SideBar(){
+export default function AsideBar(){
     const toggleSideBar = useSelector((state: RootState) => state.sideBarSliceReducer.toggleSideBar);
 
     const home : sideBarInterface[]= [
@@ -29,7 +29,7 @@ export default function SideBar(){
     ]
 
     return(
-        <aside className={`fixed top-0 left-0 w-60 h-full opacity-80 bg-white z-50 shadow transform transition-transform duration-300 overflow-y-auto ${toggleSideBar ? 'translate-x-0' : '-translate-x-full'}`}>
+        <aside className={`left-0 w-60 h-full pl-4 bg-white overflow-y-auto`}>
             <ul>
                 {
                     home.map((item, index)=>{
