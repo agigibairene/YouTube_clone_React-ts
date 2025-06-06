@@ -1,13 +1,15 @@
-import Header from "./components/Header";
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import MainContainer from "./components/MainContainer";
+import PageHeader from './components/PageHeader';
 
 function App() {
 
   return (
-    <>
-      <MainContainer />
-    </>
+    <div className='max-h-screen flex flex-col'>
+      <PageHeader />
+      <div>
+        
+      </div>
+    </div>
   )
 }
 

@@ -4,22 +4,19 @@ import SideBar from "./SideBar";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from '../reduxStore/store';
 import { handleToogleSideBar } from "../reduxStore/sidebarSlice";
-import Button from "../utils/Button";
 
 
 export default function Header(){
     const toggleSidebar = useSelector((state : RootState)=>state.sideBarSliceReducer.toggleSideBar);
     const dispatch = useDispatch<AppDispatch>();
 
-    const headerBtn : string[] = [
-        "All", "Software Engineering", "AI", "Flutter", "Music", "Podcasts", "Live", "Thoughts", "Editing"
-    ]
 
     return(
-        <header className="w-full h-20 sticky top-0 z-100">
-            <nav className="flex items-center justify-between">
-                <div className="flex items-center gap-6">
-                    <IoMdMenu className="ml-4 cursor-pointer" size={30} onClick={()=>dispatch(handleToogleSideBar())}/>
+        <header className="flex gap-10 lg:gap-20 justify-between items-center pt-4">
+            {/* <nav className="flex items-center justify-between"> */}
+                <div className="flex items-center gap-6 flex-shrink-0">
+                    <IoMdMenu   className="ml-4 p-2 cursor-pointer rounded-full hover:bg-gray-200 transition duration-200"
+                         size={50} onClick={()=>dispatch(handleToogleSideBar())}/>
                     <img src={logo} className="w-[7rem] cursor-pointer" alt="" />
                 </div>
                 {
@@ -42,26 +39,21 @@ export default function Header(){
                          <i className="bi bi-search"></i>
                        </button>
                     </div>
-                    <button className="w-10 rounded-full cursor-pointer bg-gray-100">
+                    <button className="w-10 rounded-full cursor-pointer bg-gray-100 hover:bg-gray-300">
                       <i className="bi bi-mic"></i>                   
-                    </button>
+                    </button> 
                 </div>
 
                 <div className="flex">
-                    <button className="flex items-center rounded-3xl cursor-pointer bg-gray-100 px-4 mr-6">
+                    <button className="flex items-center rounded-3xl cursor-pointer py-0 bg-gray-100 hover:bg-gray-300 px-4 mr-6">
                         <i className="bi bi-plus"></i>
                         <p>Create</p>
                     </button>
-                    <i className="bi bi-bell mr-6 cursor-pointer"></i>
+                    <i className="bi bi-bell mr-6 flex cursor-pointer h-10 w-10 items-center justify-center rounded-full p-2 hover:bg-gray-300 transition duration-200"></i>
                     <i className="bi bi-person mr-6 cursor-pointer"></i>
                 </div>
-            </nav>
+            {/* </nav> */}
 
-            <div className="flex gap-4">
-                {
-                    headerBtn.map((item)=><Button name={item}/>)
-                }
-            </div>
         </header>
     )
 }

@@ -1,5 +1,3 @@
-import { useSelector } from "react-redux"
-import type { RootState } from "../reduxStore/store"
 
 interface sideBarInterface{
     icon: String,
@@ -8,7 +6,6 @@ interface sideBarInterface{
 
 
 export default function AsideBar(){
-    const toggleSideBar = useSelector((state: RootState) => state.sideBarSliceReducer.toggleSideBar);
 
     const home : sideBarInterface[]= [
         {icon: 'bi bi-house-door', title: "Home"},
@@ -29,7 +26,7 @@ export default function AsideBar(){
     ]
 
     return(
-        <aside className={`left-0 w-60 h-full pl-4 bg-white overflow-y-auto`}>
+        <aside className={`left-0 w-40 h-full pl-4 bg-white overflow-y-auto`}>
             <ul>
                 {
                     home.map((item, index)=>{
@@ -71,7 +68,7 @@ export function SideBarList({icon, title} : sideBarInterface){
     return(
         <button>
             <i className={`${icon} text-xl`}></i>
-            <span>{title}</span>
+            <span className="ml-4">{title}</span>
         </button>
     )
 }

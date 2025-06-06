@@ -1,5 +1,8 @@
-import { useSelector } from "react-redux"
-import type { RootState } from "../reduxStore/store"
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../reduxStore/store";
+import logo from "../assets/logo.png";
+import { IoMdMenu } from "react-icons/io";
+import { handleToogleSideBar } from "../reduxStore/sidebarSlice";
 
 interface sideBarInterface{
     icon: String,
@@ -8,7 +11,9 @@ interface sideBarInterface{
 
 
 export default function SideBar(){
+
     const toggleSideBar = useSelector((state: RootState) => state.sideBarSliceReducer.toggleSideBar);
+    const dispatch = useDispatch<AppDispatch>()
 
     const home : sideBarInterface[]= [
         {icon: 'bi bi-house-door', title: "Home"},
@@ -29,7 +34,11 @@ export default function SideBar(){
     ]
 
     return(
-        <aside className={`fixed top-0 left-0 w-60 h-full opacity-80 bg-white z-50 shadow transform transition-transform duration-300 overflow-y-auto ${toggleSideBar ? 'translate-x-0' : '-translate-x-full'}`}>
+        <aside className={`fixed top-0 left-0 w-60 h-full pl-4 bg-white z-50 shadow transform transition-transform duration-300 overflow-y-auto ${toggleSideBar ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div className="flex items-center gap-6">
+                <IoMdMenu className="ml-4 cursor-pointer" size={30} onClick={()=>dispatch(handleToogleSideBar())}/>
+                <img src={logo} className="w-[7rem] cursor-pointer" alt="" />
+            </div>
             <ul>
                 {
                     home.map((item, index)=>{
