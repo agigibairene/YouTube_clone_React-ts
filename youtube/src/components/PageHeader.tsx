@@ -12,7 +12,7 @@ export default function Header(){
 
 
     return(
-        <header className="flex gap-10 lg:gap-20 justify-between items-center pt-4">
+        <header className="flex gap-10 lg:gap-20 justify-between items-center pt-4 mb-6">
             {/* <nav className="flex items-center justify-between"> */}
                 <div className="flex items-center gap-6 flex-shrink-0">
                     <IoMdMenu   className="ml-4 p-2 cursor-pointer rounded-full hover:bg-gray-200 transition duration-200"
@@ -44,13 +44,13 @@ export default function Header(){
                     </button> 
                 </div>
 
-                <div className="flex">
-                    <button className="flex items-center rounded-3xl cursor-pointer py-0 bg-gray-100 hover:bg-gray-300 px-4 mr-6">
+                <div className="flex flex-shrink-0 md:gap-2">
+                    <button className="flex items-center rounded-3xl cursor-pointer py-0 bg-gray-100 hover:bg-gray-300 px-4 ">
                         <i className="bi bi-plus"></i>
                         <p>Create</p>
                     </button>
-                    <i className="bi bi-bell mr-6 flex cursor-pointer h-10 w-10 items-center justify-center rounded-full p-2 hover:bg-gray-300 transition duration-200"></i>
-                    <i className="bi bi-person mr-6 cursor-pointer"></i>
+                    <i className="bi bi-bell flex cursor-pointer h-10 w-10 items-center justify-center rounded-full p-2 hover:bg-gray-300 transition duration-200"></i>
+                    <i className="bi bi-person cursor-pointer"></i>
                 </div>
             {/* </nav> */}
 
