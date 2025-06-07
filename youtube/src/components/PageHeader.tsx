@@ -4,11 +4,13 @@ import SideBar from "./SideBar";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from '../reduxStore/store';
 import { handleToogleSideBar } from "../reduxStore/sidebarSlice";
+import { useState } from "react";
 
 
 export default function Header(){
     const toggleSidebar = useSelector((state : RootState)=>state.sideBarSliceReducer.toggleSideBar);
     const dispatch = useDispatch<AppDispatch>();
+    const [showFullWidthOfSearchBar, setShowFullWidthOfSearchBar] = useState<boolean>(false);
 
 
     return(
@@ -27,24 +29,29 @@ export default function Header(){
                     )
                 }
 
-                <div className="flex items-center">
-                    <div className="flex items-center justify-between border border-gray-300 w-[400px] pl-4 rounded-3xl mr-4">
+                <form className="md:flex hidden gap-4 justify-center items-center">
+                    <div className="flex items-center flex-grow justify-between border border-gray-300 max-w-[600px] pl-4 rounded-3xl mr-4">
                         <input 
                             type="text"  
-                            name="" id="" 
                             placeholder="Search"
-                            className="border-0 outline-0 flex-1 bg-transparent"
+                            className="border-0 outline-0 flex-1 bg-transparent focus:border-blue-500"
                         />
                        <button className="border-l border-gray-300 px-4 rounded-r-3xl bg-gray-100 cursor-pointer">
                          <i className="bi bi-search"></i>
                        </button>
                     </div>
-                    <button className="w-10 rounded-full cursor-pointer bg-gray-100 hover:bg-gray-300">
+                    <button className="w-10 flex-shrink-0 rounded-full cursor-pointer bg-gray-100 hover:bg-gray-300">
                       <i className="bi bi-mic"></i>                   
                     </button> 
-                </div>
+                </form>     
 
-                <div className="flex flex-shrink-0 md:gap-2">
+                <div className={`flex-shrink-0 md:gap-2 ${showFullWidthOfSearchBar ? 'hidden' : 'flex'}`}>
+                    <button 
+                        onClick={()=>setShowFullWidthOfSearchBar(true)} 
+                        className="md:hidden flex w-12 h-12 items-center justify-center p-4 rounded-full hover:bg-gray-300 cursor-pointer"
+                    >
+                    <i className="bi bia-search"></i>
+                    </button>
                     <button className="flex items-center rounded-3xl cursor-pointer py-0 bg-gray-100 hover:bg-gray-300 px-4 ">
                         <i className="bi bi-plus"></i>
                         <p>Create</p>
@@ -52,8 +59,6 @@ export default function Header(){
                     <i className="bi bi-bell flex cursor-pointer h-10 w-10 items-center justify-center rounded-full p-2 hover:bg-gray-300 transition duration-200"></i>
                     <i className="bi bi-person cursor-pointer"></i>
                 </div>
-            {/* </nav> */}
-
         </header>
     )
 }
